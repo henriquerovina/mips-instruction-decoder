@@ -32,5 +32,5 @@ Built for a computer architecture course to model the **decode stage** of a MIPS
    ```bash
    cat statistics.txt
 
-###📝 Manual Decoding Proof
-* **See manual_proof.txt in the repository for a step‑by‑step bitwise extraction of opcode, rs, rt, rd, and immediate fields from three sample instructions.
+### 📝 Manual Decoding Proof
+See manual_proof.txt in the repository for a step‑by‑step bitwise extraction of opcode, rs, rt, rd, and immediate fields from three sample instructions.
