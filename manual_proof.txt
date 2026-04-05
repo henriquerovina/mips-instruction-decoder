@@ -1,0 +1,29 @@
+Manual Decoding Proof for Three Instructions from trace.txt
+
+Instruction 1: PC=0x00000000, hex=0x20020005
+Binary: 0010 0000 0000 0010 0000 0000 0000 0101
+Bitwise extraction:
+  opcode = (0x20020005 >> 26) & 0x3F = 0x08
+  rs     = (0x20020005 >> 21) & 0x1F = 0x00
+  rt     = (0x20020005 >> 16) & 0x1F = 0x02
+  imm    = 0x20020005 & 0xFFFF = 0x0005
+Interpretation: addi $2, $0, 5 → I-type, arithmetic, reads $0, writes $2.
+
+Instruction 2: PC=0x00000008, hex=0x00431020
+Binary: 0000 0000 0100 0011 0001 0000 0010 0000
+  opcode = (0x00431020 >> 26) & 0x3F = 0x00
+  rs     = (0x00431020 >> 21) & 0x1F = 0x02
+  rt     = (0x00431020 >> 16) & 0x1F = 0x03
+  rd     = (0x00431020 >> 11) & 0x1F = 0x10 (16)
+  funct  = 0x00431020 & 0x3F = 0x20
+Since opcode=0 and funct=0x20, this is R-type "add". Operation: add $16, $2, $3.
+Reads $2 and $3, writes $16.
+
+Instruction 3: PC=0x00000010, hex=0x0800001C
+Binary: 0000 1000 0000 0000 0000 0000 0001 1100
+  opcode = (0x0800001C >> 26) & 0x3F = 0x02
+  target = 0x0800001C & 0x03FFFFFF = 0x00001C
+Opcode 0x02 = "j" (jump). Always taken. No register access.
+
+All field extractions used only bitwise right shift, left shift, and AND with masks.
+No string conversion or sscanf on hex strings was used, as required.
