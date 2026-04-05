@@ -16,15 +16,14 @@ Built for a computer architecture course to model the decode stage of a MIPS pro
 * **Libraries:** `stdio.h`, `stdint.h`  
 * **Operations:** Bitwise shifts, AND, OR, masks
 
-### 🚀 How to Run  
-1. Place `trace.txt` in the same directory as the executable.  
-2. Compile:  
+### 🚀 How to Run   
+1. Compile:  
    ```bash
    gcc -o decoder decoder.c
-3. **Execute:**
+2. **Execute:**
    ```bash
    ./decoder
-4. **View Results:**
+3. **View Results:**
    ```bash
    cat statistics.txt
 
